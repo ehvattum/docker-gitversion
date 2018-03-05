@@ -2,14 +2,23 @@ assembly-versioning-scheme: MajorMinorPatchTag
 next-version: 0.2.0
 branches: 
   master:
-    regex: master|gitversion-ci
+    regex: master
     mode: Mainline
     tag: ''
     increment: Patch
     prevent-increment-of-merged-branch-version: true
     track-merge-target: false
     tracks-release-branches: false
-    is-release-branch: false
+    is-release-branch: true
+  gitverison-ci:
+    regex: gitverison-ci
+    mode: Mainline
+    tag: 'ci'
+    increment: Patch
+    prevent-increment-of-merged-branch-version: true
+    track-merge-target: false
+    tracks-release-branches: false
+    is-release-branch: true
 
 ignore:
   sha: []
