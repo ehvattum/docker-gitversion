@@ -6,7 +6,6 @@ RUN curl -Ls https://github.com/GitTools/GitVersion/releases/download/v4.0.0-bet
   && unzip -d /usr/lib/GitVersion tmp.zip \
   && rm tmp.zip \
   && sed -i 's|lib/linux/x86_64|/usr/lib/GitVersion/tools/lib/linux/x86_64|g' /usr/lib/GitVersion/tools/LibGit2Sharp.dll.config
-  
-WORKDIR ${CI_PROJECT_DIR}
+ADD entrypoint.sh /entrypoint.sh
 
-ENTRYPOINT ["mono", "/usr/lib/GitVersion/tools/GitVersion.exe"]
+ENTRYPOINT ["/entrypoint.sh" ]
