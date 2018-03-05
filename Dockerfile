@@ -7,6 +7,6 @@ RUN curl -Ls https://github.com/GitTools/GitVersion/releases/download/v4.0.0-bet
   && rm tmp.zip \
   && sed -i 's|lib/linux/x86_64|/usr/lib/GitVersion/tools/lib/linux/x86_64|g' /usr/lib/GitVersion/tools/LibGit2Sharp.dll.config
   
-WORKDIR /usr/lib/GitVersion/tools
+WORKDIR ${CI_PROJECT_DIR}
 
-ENTRYPOINT ["mono", "./GitVersion.exe", "$CI_PROJECT_DIR"]
+ENTRYPOINT ["mono", "/usr/lib/GitVersion/tools/GitVersion.exe"]
