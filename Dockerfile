@@ -9,6 +9,4 @@ RUN curl -Ls https://github.com/GitTools/GitVersion/releases/download/v4.0.0-bet
   
 WORKDIR /usr/lib/GitVersion/tools
 
-VOLUME ["/src"]
-
-ENTRYPOINT ["mono", "./GitVersion.exe", "/src"]
+ENTRYPOINT ["mono", "./GitVersion.exe", "$CI_PROJECT_DIR"]
